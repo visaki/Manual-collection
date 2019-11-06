@@ -14,13 +14,9 @@
 ## Ubuntu下如何使用OpenVPN
 * 第一步： 确认已申请的账号密码
 * 第二步： 获取配置文件压缩包config-game-ubuntu
-* 第三步（16.04）： 使用以下命令安装openvpn
+* 第三步： 使用以下命令安装openvpn
 ```
 apt-get update -y && apt-get install -y openvpn
-```
-* 第三步（18.04）： 获取openvpn_2.3.10-1ubuntu2_amd64.deb，然后使用以下命令安装
-```
-dpkg -i openvpn_2.3.10-1ubuntu2_amd64.deb
 ```
 * 第四步： 将解压后的config-game-ubuntu文件夹放在/etc/openvpn/下
 * 第五步： 使用如下命令启动openvpn，然后输入账号密码即可
