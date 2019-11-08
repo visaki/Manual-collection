@@ -8,47 +8,34 @@
 自管理员处获取账号密码后，在使用集群过程中不得滥用漏洞（OpenPAI自身问题）
 ## 浏览器访问
 192.168.111.100:9286
-## 镜像
-镜像需安装cifs-utils，openssh-server，curl，才能启用挂载存储和SSH功能。推荐一个新手练习镜像：192.168.111.99:5000/zhaoj-pytorch-py36-cu90
+## 镜像（可选）
+如果需要SSH功能，镜像需安装openssh-server和curl，。推荐一个新手练习镜像：192.168.111.99:5000/zhaoj-pytorch-py36-cu90
 ## 提交任务详解
 ### 选择Cluster
 * default是专用于项目的，原则上不允许非项目使用
 * gpu_only是用于非项目的
 ### Command详解（需要哪个功能就用Ctrl+C复制命令，然后Ctrl+V复制到Command栏）
-* SSH功能:  
-
-启用SSH命令：
-```
-sed -i 's/[# ]*Port.*/Port '$PAI_CONTAINER_SSH_PORT'/' /etc/ssh/sshd_config && service ssh restart
-```
-禁用SSH命令：
+* 禁用SSH功能（默认是启动的）:  
 ```
 service ssh stop
 ```
-* 挂载公共数据集至/data:  
+* 公共数据集文件夹被自动挂载至容器中/dataset目录下，使用示例（容器内进入公共数据集文件夹）:  
 ```
-mkdir /data && mount -t cifs -o username=dataset,password=123456,dir_mode=0555,file_mode=0555,nounix  //169.252.198.3/dataset /data
+cd /dataset
 ```
-* 挂载个人目录至/code：  
-
-必须在Secrets里将自己的密码设置为secrets。例如密码为12345678，在Secrets栏添加key为pwd，value为12345678，在Command栏里<% $secrets.pwd %>就代表着12345678。请将以下示例命令中的'账号'替换为自己的账号名，确认<% $secrets.pwd %>已设置完成。
+* 个人家目录被自动挂载至容器中/userhome目录下，使用示例（容器内进入个人家目录）：  
 ```
-mkdir /code && mount -t cifs -o username=账号,password=<% $secrets.pwd %>,dir_mode=0775,file_mode=0775,nounix  //169.252.198.3/homes /code
+cd /userhome
 ```
 ### 选择镜像
-不要使用默认的镜像，应使用集群镜像，例如： 192.168.111.99:5000/zhaoj-pytorch-py36-cu90
+不要使用默认的镜像，应使用集群镜像（前缀都是192.168.111.99:5000），例如： 192.168.111.99:5000/zhaoj-pytorch-py36-cu90
 ### 分布式任务
-分布式任务需要多个Task role，例如两个，分别叫task1，task2，在Command栏内可以用ssh task1-0或ssh task2-0轻松的ssh到每一个容器里
+分布式任务需要多个Task role，例如两个，分别叫task1，task2，在Command栏（或ssh至容器内后）可以用ssh task1-0或ssh task2-0轻松的ssh到每一个容器里
 ## SSH至一个Running容器
-* 第一步： 使用xshell（ssh工具）远程连接集群，IP地址：202.38.69.243，端口：11099，账号密码从管理员获取
-* 第二步： 使用以下命令移动至/students/ssh文件夹（主目录无法ssh，因为存储的设定）
-```
-cd /students/ssh
-```
-* 第三步： 查看任务的ssh info信息，有三行命令（wget，chmod，ssh什么的），依次执行即可SSH进容器内
+* 第一步（ubuntu可跳过此步）： 使用xshell（ssh工具）远程连接集群，输入IP地址：202.38.69.243，端口：11099，账号，密码.这四项输入无误，点击连接即可
+* 第二步： 查看任务的ssh info信息，有三行命令（wget，chmod，ssh什么的），依次执行即可SSH进容器内
 ## 上传数据
-* 上传个人数据： 使用xftp（传输文件工具，也可以用winscp）向集群中自己的主目录传输即可
-* 公共数据集： 使用xftp向集群中/students/dataset目录传输即可
-* 挂载数据参考Command详解
+* 上传个人数据： 使用xftp（传输文件工具，也可以用winscp）向集群中自己的主目录传输即可.确保IP,端口,账号,密码这四项输入无误
+* 公共数据集： 使用xftp向集群中/game/dataset目录传输即可
 
 
