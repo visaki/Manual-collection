@@ -14,7 +14,7 @@
 ### 选择Cluster
 * default是专用于项目的，原则上不允许非项目使用
 * gpu_only是用于非项目的
-### Command详解（需要哪个功能就用Ctrl+C复制命令，然后Ctrl+V复制到Command栏）
+### Command详解（Ctrl+C和Ctrl+V可轻松复制粘粘）
 * 禁用SSH功能（默认是启动的）:  
 ```
 service ssh stop
@@ -32,10 +32,10 @@ cd /userhome
 ### 分布式任务
 分布式任务需要多个Task role，例如两个，分别叫task1，task2，在Command栏（或ssh至容器内后）可以用ssh task1-0或ssh task2-0轻松的ssh到每一个容器里
 ## SSH至一个Running容器
-* 第一步（ubuntu可跳过此步）： 使用xshell（ssh工具）远程连接集群，输入IP地址：202.38.69.243，端口：11099，账号，密码.这四项输入无误，点击连接即可
+* 第一步（ubuntu可跳过此步）： 使用xshell（ssh工具）远程连接集群，确保IP地址为202.38.69.243，端口为11099，账号，密码.这四项输入无误，点击连接即可
 * 第二步： 查看任务的ssh info信息，有三行命令（wget，chmod，ssh什么的），依次执行即可SSH进容器内
 ## 上传数据
-* 上传个人数据： 使用xftp（传输文件工具，也可以用winscp）向集群中自己的主目录传输即可.确保IP,端口,账号,密码这四项输入无误
+* 上传个人数据： 使用xftp（传输文件工具，也可以用winscp）向集群中自己的主目录传输即可.确保IP地址为202.38.69.243，端口为11099，账号，密码.这四项输入无误
 * 公共数据集： 使用xftp向集群中/game/dataset目录传输即可
 
 
