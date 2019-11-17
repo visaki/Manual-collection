@@ -50,6 +50,6 @@ zhangsan@depoly:~$ ssh -i ~/.ssh/id_rsa -p 20841 root@192.168.111.110
 ```
 ## 上传数据
 * 上传个人数据： 使用xftp（传输文件工具，也可以用winscp）向集群中自己的主目录传输即可.  确保IP地址为202.38.69.243，端口为11099，账号，密码.这四项输入无误
-* 公共数据集： 使用xftp向集群中/game/dataset目录传输即可
+* 公共数据集： 使用xftp向集群中/game/dataset_temp目录传输，通知管理员转移至/game/dataset
 
 
