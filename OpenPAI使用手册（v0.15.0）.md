@@ -44,7 +44,7 @@ cat /userhome/.ssh/id_rsa.pub > ~/.ssh/authorized_keys && chmod 600 ~/.ssh/autho
 ```
 zhangsan@depoly:~$
 ```
-* 第三步： 查看任务的ssh info信息，修改最后一行命令中的 -i 秘钥名 为 -i ~/id_rsa , 例如最后一行为ssh -i zhangsan_1573621908725_776cbb77 -p 20841 root@192.168.111.110，则修改为：
+* 第三步： 查看任务的ssh info信息中的最后一行命令（安全SSH方法下其它行没用），修改最后一行命令中的 -i 秘钥名 为 -i ~/id_rsa , 例如最后一行为ssh -i zhangsan_1573621908725_776cbb77 -p 20841 root@192.168.111.110，则修改为：
 ```
 zhangsan@depoly:~$ ssh -i ~/id_rsa -p 20841 root@192.168.111.110
 ```
