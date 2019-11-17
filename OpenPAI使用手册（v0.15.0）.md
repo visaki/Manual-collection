@@ -9,7 +9,7 @@
 ## 浏览器访问
 192.168.111.100:9286
 ## 制作具有SSH功能镜像（可选）
-如果需要SSH功能，镜像需安装openssh-server和curl，。推荐一个新手练习镜像：192.168.111.99:5000/zhaoj-pytorch-py36-cu90
+如果需要SSH功能，镜像需安装openssh-server和curl. 推荐一个新手练习镜像：192.168.111.99:5000/zhaoj-pytorch-py36-cu90
 ## 提交任务详解
 ### 选择Cluster
 * default是专用于项目的，原则上不允许非项目使用
