@@ -9,7 +9,7 @@
 ## 浏览器访问
 192.168.111.100:9286
 ## 制作具有SSH功能镜像（可选）
-如果需要SSH功能，镜像需安装openssh-server和curl. 推荐一个新手练习镜像：192.168.111.99:5000/zhaoj-pytorch-py36-cu90
+如果需要SSH功能，镜像需安装openssh-server和curl
 ## 提交任务详解
 ### 选择Cluster
 * default是专用于项目的，原则上不允许非项目使用
@@ -32,7 +32,7 @@ cd /dataset
 cd /userhome
 ```
 ### 选择镜像
-不要使用默认的镜像，应使用集群镜像（前缀都是192.168.111.99:5000），例如： 192.168.111.99:5000/zhaoj-pytorch-py36-cu90
+不要使用默认的镜像，应使用集群镜像（前缀都是192.168.111.99:5000）
 ### 分布式任务
 分布式任务需要多个Task role，例如两个，分别叫task1，task2，在Command栏（或ssh至容器内后）可以用ssh task1-0或ssh task2-0轻松的ssh到每一个容器里
 ## 安全SSH至一个Running容器
