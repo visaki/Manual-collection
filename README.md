@@ -5,6 +5,7 @@
 # 现有镜像
 ```
 192.168.111.99:5000/caimz-base-v1
+192.168.111.99:5000/caimz-base-v2
 192.168.111.99:5000/liushuai-pytorch1.3-cuda10.1-cudnn7
 192.168.111.99:5000/mxfeng-alphaair 
 192.168.111.99:5000/mxfeng-ddrl
