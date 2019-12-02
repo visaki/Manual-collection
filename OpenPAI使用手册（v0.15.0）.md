@@ -15,7 +15,7 @@
 * default是专用于项目的，原则上不允许非项目使用
 * gpu_only是用于非项目的
 ### Command详解（Ctrl+C和Ctrl+V可轻松复制粘粘）
-* 安全SSH命令（默认是不安全的，不要使用，后果自负）：
+* 安全SSH命令，分布式任务不好用（默认是不安全的，不要使用，后果自负）：
 ```
 cat /userhome/.ssh/id_rsa.pub > ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
 ```
