@@ -1,8 +1,9 @@
 ## 先决条件
 已查看OpenVPN使用手册，并已成功连接VPN
 ## 集群资源
-* 2080ti服务器： 2张2080TI显卡，192逻辑CPU核，768G内存
-* Titan V服务器： 8张TITAN V显卡，40逻辑CPU核，512G内存
+* 2080ti服务器（3可用）： 2张2080TI显卡，192逻辑CPU核，768G内存
+* Titan V服务器（2可用）： 8张TITAN V显卡，40逻辑CPU核，512G内存
+* 纯CPU服务器（1可用）： 384逻辑核，512G内存 
 * 剩余资源详细情况：http://192.168.111.100:8088/cluster/nodes
 # 警告
 自管理员处获取账号密码后，在使用集群过程中不得滥用漏洞（OpenPAI自身问题）
@@ -34,7 +35,8 @@ cd /userhome
 ### 选择镜像
 不要使用默认的镜像，应使用集群镜像（前缀都是192.168.111.99:5000）
 ### 分布式任务
-分布式任务需要多个Task role，例如两个，分别叫task1，task2，在Command栏（或ssh至容器内后）可以用ssh task1-0或ssh task2-0轻松的ssh到每一个容器里
+* 如有多个instance，注意minFailedInstances，minSucceededInstances
+* 如有多个Task role，例如两个，分别叫task1，task2，在Command栏（或ssh至容器内后）可以用ssh task1-0或ssh task2-0轻松的ssh到每一个容器里
 ## 安全SSH至一个Running容器
 * 第一步： 提交任务时在Command栏添加安全SSH命令：
 ```
