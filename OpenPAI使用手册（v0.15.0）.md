@@ -12,11 +12,11 @@
 ## 制作具有SSH功能镜像（可选）
 如果需要SSH功能，镜像需安装openssh-server和curl
 ## 网页提交任务注意事项
-### 第一点：选择Cluster
+### 注意事项一：选择Cluster
 * default
 * gpu_only
 * cpu_only
-### 第二点：Command详解（Ctrl+C和Ctrl+V可轻松复制粘粘）
+### 注意事项二：Command详解（Ctrl+C和Ctrl+V可轻松复制粘粘）
 * 安全SSH命令，分布式任务不好用（默认是不安全的）：
 ```
 cat /userhome/.ssh/id_rsa.pub > ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
@@ -34,9 +34,9 @@ cd /dataset
 cd /userhome
 ```
 * 保存大的数据可选择输出至/game1和/game2
-### 第三点：选择镜像
+### 注意事项三：选择镜像
 不要使用默认的镜像，应使用集群镜像（前缀都是192.168.111.99:5000）
-### 分布式任务
+### 注意事项四：分布式任务
 * 如有多个instance，注意填写minFailedInstances，minSucceededInstances
 * 如有一个Task role名称是task1，在Command栏（或ssh至容器内后）可以用ssh task1-0命令ssh进入task1的第0个instance，可以用ssh task1-1进入task1的第1个instance，以此类推
 ## 安全SSH至一个Running容器
